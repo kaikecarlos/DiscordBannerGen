@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#generator').on('submit', async (e) => {
+    $('#generator').on('submit', (e) => {
         e.preventDefault();
         const serverId = $('#serverId').val();
         if(serverId.split('').length !== 18 || parseInt(serverId) === NaN) {
