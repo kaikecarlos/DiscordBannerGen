@@ -10,7 +10,7 @@ $(document).ready(function(){
             });
         }
         $.get(`https://discordapp.com/api/guilds/${serverId}/widget.json`)
-            .then(async (guild) => {
+            .then((guild) => {
                 const styleId = $('#styleId').val();
                 const imageUrl = `https://discordapp.com/api/guilds/${serverId}/widget.png?style=banner${styleId}&t=${Date.now()}`;
                 return Swal({
