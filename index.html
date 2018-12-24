@@ -2,55 +2,42 @@
 <html>
 <head>
 	<title>Discord Banner Generator</title>
-
-	  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
- <!--Import Google Icon Font-->
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 <body>
-	<style type="text/css">
-body {
-    overflow-x:hidden;
-}
-</style>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<div class="seserves">
-		<div class="row">
-			<label>*The server needs to activate the widget in options | O servidor precisa ter hablitado a opção de utilizar widgets no painel</label>
 
-		<div class="input-field col s6" style="height: 100%">
-				<input type="text" name="" id="serverid">
-				<label>Put the Server Id here | Coloque o ID do servidor aqui</label>
+	<div class="container mt-5 text-white results">
+		<div class="info text-center">
+			<h1>What???</h1>
+			<p>Discord (Message and text platform, if you do not know, I do not know why you're here) offers some images of your server by their api, with the server's icon and the number of members. You just have to enable the widgets on your server, put his id, and that's it! Our site is 100% Open Source, so you can give a fork in our repository and make your changes, go that it is accepted :)</p>
 		</div>
+		<form id="generator">
+			<div class="field mt-5">
+				<label for="serverId">Server ID</label>
+				<input type="text" id="serverId" class="form-control" required>
+			</div>
+			<div class="field mt-5">
+				<label for="styleId">Banner style</label>
+				<select class="browser-default custom-select" id="styleId">
+					<option value=" " disabled>Choose your style</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+			</div>
+			<button class="btn btn-primary mt-3" type="submit">Generate</button>
+		</form>
 	</div>
-		<div class="valvue">
-			<img src="" id="bnner">
-		</div>
-		
-		<div class="row">
-			<div class="input-field col s12">
-		<select id="styleveiw">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
 
-		</select>	
-		</div>
-		</div>	
-		<script type="text/javascript">
-			var serverids = document.getElementById('serverid');
-			var lnk = document.getElementById('link');
-			var imige = document.getElementById('bnner')
-			
-			serverids.onchange = serverids.onkeyup = function() {
-			 	imige.src = "https://discordapp.com/api/guilds/" + serverids.value + "/widget.png?style=banner4&t=1512006306528";
-			 	lnk.href = " https://discordapp.com/api/guilds/" + serverids.value + "/widget.png?style=banner4  &t=1512006306528";
-			 }
-		</script>
-	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.all.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="./assets/index.js"></script>
 </body>
 </html>
