@@ -12,10 +12,15 @@ $(document).ready(function(){
         $.get(`https://discordapp.com/api/guilds/${serverId}/widget.json`)
             .then((guild) => {
                 const styleId = $('#styleId').val();
-                const imageUrl = `https://discordapp.com/api/guilds/${serverId}/widget.png?style=banner${styleId}&t=1512006306528`;
+                const imageUrl = `https://discordapp.com/api/guilds/${serverId}/widget.png?style=banner${styleId}&t=${Date.now()}`;
                 return Swal({
                     title: 'Gotcha!',
-                    text: `Here's the guild widget for "${guild.name}"!`,
+                    html: [`Here's the guild widget for "${guild.name}"!`,
+                        '<pre><code>',
+                        `HTML: ${hljs.highlightAuto(`<img src="${imageUrl}" alt="Join ${guild.name}">`).value}`,
+                        `Markdown: ${hljs.highlightAuto(`![Join ${guild.name}](${imageUrl})`).value}`,
+                        '</code></pre>']
+                        .join('\n'),
                     imageUrl
                 });
             })
