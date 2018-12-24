@@ -10,12 +10,17 @@ $(document).ready(function(){
             });
         }
         $.get(`https://discordapp.com/api/guilds/${serverId}/widget.json`)
-            .then((guild) => {
+            .then(async (guild) => {
                 const styleId = $('#styleId').val();
-                const imageUrl = `https://discordapp.com/api/guilds/${serverId}/widget.png?style=banner${styleId}&t=1512006306528`;
+                const imageUrl = `https://discordapp.com/api/guilds/${serverId}/widget.png?style=banner${styleId}&t=${Date.now()}`;
                 return Swal({
                     title: 'Gotcha!',
                     text: `Here's the guild widget for "${guild.name}"!`,
+                    footer: ['<pre><code>',
+                        `// HTML: &lt;img src="${imageUrl}" alt="Join ${guild.name}"&gt;`,
+                        `// Markdown: ![Join ${guild.name}](${imageUrl})`,
+                        '</code></pre>']
+                        .join('\n'),
                     imageUrl
                 });
             })
